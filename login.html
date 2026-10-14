@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MargZen — Welcome to Career Planner!</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="auth-page-body">
+
+    <div class="auth-wrapper">
+
+        <div class="clean-auth-card">
+
+            <!-- Card Top: Brand Logo -->
+            <div class="auth-card-top">
+                <div class="auth-card-brand">
+                    <img src="logo.jpg" onerror="this.onerror=null; this.style.display='none';" alt="MargZen Logo" class="auth-card-logo">
+                    <span class="auth-card-brandname">Marg<span>Zen</span></span>
+                </div>
+            </div>
+
+            <!-- Main Heading -->
+            <div class="auth-card-heading-wrap">
+                <h2 class="auth-main-headline">Welcome to Career Planner!</h2>
+            </div>
+
+            <!-- Clean Method Tabs: Mobile No | Email -->
+            <div class="auth-tabs-row">
+                <button type="button" class="auth-tab-item active" id="tabBtnMobile" onclick="switchAuthInput('mobile')">
+                    Mobile No
+                </button>
+                <button type="button" class="auth-tab-item" id="tabBtnEmail" onclick="switchAuthInput('email')">
+                    Email
+                </button>
+            </div>
+
+            <!-- Form Body -->
+            <form id="standaloneAuthForm" novalidate>
+
+                <!-- Mobile Section -->
+                <div class="input-block" id="mobileInputBlock">
+                    <label class="input-title">Mobile Number</label>
+
+                    <div class="clean-field-box" id="mobileFieldBox">
+                        <!-- Country code trigger -->
+                        <div class="prefix-code" id="countryCodeTrigger" onclick="toggleCountryDropdown(event)"
+                             tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="flag" id="selectedFlag">🇮🇳</span>
+                            <span class="code" id="selectedCode">+91</span>
+                            <span class="arrow" id="countryArrow">▾</span>
+                        </div>
+
+                        <!-- Hidden field to store dial code -->
+                        <input type="hidden" id="dialCode" value="+91">
+
+                        <input type="tel" id="userMobile" placeholder="Enter your mobile number"
+                               inputmode="numeric" maxlength="10" oninput="handleMobileInput()">
+
+                        <!-- Country dropdown panel -->
+                        <div class="country-dropdown" id="countryDropdown">
+                            <div class="country-search-box">
+                                <input type="text" id="countrySearchInput" placeholder="Search country or code"
+                                       oninput="filterCountryList()" onclick="event.stopPropagation()">
+                            </div>
+                            <ul class="country-list" id="countryList" role="listbox">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="field-error" id="mobileError">Invalid phone number</span>
+                </div>
+
+                <!-- Email Section -->
+                <div class="input-block" id="emailInputBlock" hidden>
+                    <label class="input-title">Email Address</label>
+                    <div class="clean-field-box" id="emailFieldBox">
+                        <input type="email" id="userEmail" placeholder="Enter your email address"
+                               oninput="handleEmailInput()">
+                    </div>
+                    <span class="field-error" id="emailError">Invalid email address</span>
+                </div>
+
+                <!-- Password Field with a single View/Hide Eye Toggle -->
+                <div class="input-block">
+                    <div class="label-with-action">
+                        <label class="input-title">Password</label>
+                        <a href="forgot.html" class="forgot-pwd-btn">Forgot?</a>
+                    </div>
+
+                    <div class="clean-field-box" id="pwdFieldBox">
+                        <input type="password" id="userPassword" placeholder="Enter your password"
+                               oninput="handlePasswordInput()">
+
+                        <button type="button" class="eye-toggle-icon" onclick="togglePasswordView()"
+                                title="Show/Hide Password">
+                            <svg id="pwdEyeSvg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="field-error" id="passwordError">Not a strong password</span>
+                </div>
+
+                <!-- General form-level error, shown after an invalid Proceed attempt -->
+                <span class="field-error center" id="formError">Invalid mobile no. or password</span>
+
+                <!-- Submit / Proceed Button -->
+                <button type="submit" class="btn-proceed-securely" id="btnProceed">
+                    <span>Proceed</span>
+                </button>
+
+            </form>
+
+            <!-- Bottom Disclaimer -->
+            <div class="auth-card-footer">
+                <p class="terms-text">
+                    Don't have an account?
+                    <a href="signup.html">Sign Up</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast" role="alert">
+        <span id="toastIcon">✨</span>
+        <span id="toastMsg">Notification message</span>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="auth.js"></script>
+    <script src="login.js"></script>
+
+</body>
+
+</html>

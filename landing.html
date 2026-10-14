@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MargZen — AI Career & Adaptive Study Planner</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="landing.css">
+</head>
+
+<body>
+
+    <!-- Ambient Background -->
+    <div class="bg-fx">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- 1. Header (Left Large Logo, Right Profile Button) -->
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" onerror="this.src='logo.jpg'" alt="MargZen Logo">
+            <span class="logo-text">Marg<span>Zen</span></span>
+        </a>
+
+        <div class="nav-right">
+            <!-- Redirects to the standalone login page -->
+            <button class="nav-auth-btn" onclick="window.location.href='login.html'" title="Login / Register">
+                <div class="auth-icon-circle">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </div>
+                <span>Login / Sign Up</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. Heading Section -->
+    <main>
+        <section class="hero-section">
+            <div class="badge-pill">
+                <span class="pulse-dot"></span>
+                Journey From Confusion to Clarity
+            </div>
+
+            <h1 class="project-headline">
+                AI Career & Adaptive Study Planner
+            </h1>
+
+            <div class="quote-card">
+                <blockquote class="inspiring-quote">
+                    “The goal is not just to study hard, but to study smart. With AI, your learning journey adapts to
+                    your pace, bridges your exact weaknesses, and navigates you straight to your dream career.”
+                </blockquote>
+            </div>
+
+            <p class="core-idea">
+                An intelligent career preparation system that builds a personalized roadmap from your goals, skills,
+                preferred stack, and deadline — transforming it into adaptive daily targets, interactive quizzes, and
+                continuous learning optimization.
+            </p>
+        </section>
+
+        <!-- 3. Four Feature Cards (2x2 Grid) -->
+        <section class="cards-section">
+            <div class="section-title-wrap">
+                <h2 class="section-heading">Core System Pillars</h2>
+                <p class="section-subtext">Four interconnected capabilities that make your preparation precise and reliable.</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon cyan-glow">🗺️</div>
+                        <h3 class="card-title">1. Personalized Career Roadmap</h3>
+                    </div>
+                    <ul class="points-list">
+                        <li><strong>Profile-Driven:</strong> Generates roadmap tailored to target role and company.</li>
+                        <li><strong>Custom Tech Stack:</strong> Select languages and frameworks seamlessly.</li>
+                        <li><strong>Structured Phases:</strong> Organizes learning systematically from core to advance.</li>
+                        <li><strong>Contextual Topics:</strong> Click any concept to view prerequisites and practice.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon blue-glow">📅</div>
+                        <h3 class="card-title">2. Smart Daily Study Targets</h3>
+                    </div>
+                    <ul class="points-list">
+                        <li><strong>Automated Breakdown:</strong> Converts macro roadmap into manageable daily targets.</li>
+                        <li><strong>Status Tracking:</strong> Real-time progress states (Not Started, In Progress, Completed).</li>
+                        <li><strong>End-of-Day Check-in:</strong> Review topics studied and submit self-assessments.</li>
+                        <li><strong>Pacing Adjustment:</strong> Recalibrates target workloads based on available hours.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon teal-glow">🧠</div>
+                        <h3 class="card-title">3. AI Quizzes & Daily Evaluation</h3>
+                    </div>
+                    <ul class="points-list">
+                        <li><strong>Targeted Mini-Quizzes:</strong> Generates conceptual questions for finished topics.</li>
+                        <li><strong>True Understanding Check:</strong> Validates self-assessment with objective scoring.</li>
+                        <li><strong>Performance Breakdown:</strong> Identifies strong mastered areas vs weak spots.</li>
+                        <li><strong>Actionable Recommendations:</strong> Delivers immediate daily guidance for tomorrow.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon amber-glow">🔄</div>
+                        <h3 class="card-title">4. Continuous Adaptive Engine</h3>
+                    </div>
+                    <ul class="points-list">
+                        <li><strong>Dynamic Rescheduling:</strong> Adds reinforcement when struggling and accelerates when fast.</li>
+                        <li><strong>Weakness Detection:</strong> Spots recurring bottlenecks and injects exercises.</li>
+                        <li><strong>Prerequisite Guard:</strong> Locks advanced content until basics are mastered.</li>
+                        <li><strong>Comprehensive Milestone Report:</strong> Tracks longitudinal growth & career readiness.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 4. Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo-wrap">
+                    <img src="logo.jpg" onerror="this.src='logo.jpg'" alt="MargZen" class="footer-logo">
+                    <span class="footer-logo-text">Marg<span>Zen</span></span>
+                </div>
+                <p>AI-Powered Career Roadmap & Adaptive Study Preparation System.</p>
+            </div>
+            <div class="footer-nav-links">
+                <a href="landing.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="terms.html">Terms & Conditions</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MargZen Adaptive Study Planner. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- External Script -->
+    <script src="landing.js"></script>
+</body>
+</html>

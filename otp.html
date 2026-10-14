@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Enter OTP — MargZen</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="auth-page-body">
+
+    <div class="auth-wrapper">
+
+        <div class="clean-auth-card">
+
+            <a href="forgot.html" class="back-home-link">← Back</a>
+
+            <!-- Card Top: Brand Logo -->
+            <div class="auth-card-top">
+                <div class="auth-card-brand">
+                    <img src="logo.jpg" onerror="this.onerror=null; this.style.display='none';" alt="MargZen Logo" class="auth-card-logo">
+                    <span class="auth-card-brandname">Marg<span>Zen</span></span>
+                </div>
+            </div>
+
+            <!-- Main Heading -->
+            <div class="auth-card-heading-wrap">
+                <h2 class="auth-main-headline">Enter OTP</h2>
+            </div>
+            <p class="auth-subtext">We've sent a 6-digit code to <strong id="maskedMobile">your registered mobile number</strong>.</p>
+
+            <!-- Form Body -->
+            <form id="otpForm" novalidate>
+
+                <div class="input-block">
+                    <label class="input-title">One-Time Password</label>
+
+                    <div class="clean-field-box" id="otpFieldBox">
+                        <input type="text" id="userOtp" class="otp-input" placeholder="------"
+                               inputmode="numeric" maxlength="6" oninput="handleOtpInput()">
+                    </div>
+                    <span class="field-error" id="otpError">Invalid OTP. Please try again.</span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-proceed-securely" id="btnVerifyOtp">
+                    <span>Verify OTP</span>
+                </button>
+
+            </form>
+
+            <div class="resend-row">
+                <span>Didn't get the code? </span>
+                <button type="button" class="resend-link" id="resendBtn" onclick="resendOtp()">Resend OTP</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast" role="alert">
+        <span id="toastIcon">✨</span>
+        <span id="toastMsg">Notification message</span>
+    </div>
+
+    <!-- External Script -->
+    <script src="otp.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MargZen — Create Account</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body class="auth-page-body">
+
+    <div class="auth-wrapper">
+        <div class="clean-auth-card">
+            <!-- Card Top: Brand Logo -->
+            <div class="auth-card-top">
+                <div class="auth-card-brand">
+                    <img src="logo.jpg" onerror="this.onerror=null; this.style.display='none';" alt="MargZen Logo" class="auth-card-logo">
+                    <span class="auth-card-brandname">Marg<span>Zen</span></span>
+                </div>
+            </div>
+
+            <!-- Header Tabs: Log In | Create Account -->
+            <!-- CHANGED: "Log In" tab now has visible text + a real href (was an empty link before) -->
+            <div class="auth-tabs-row">
+                <a href="login.html" class="auth-tab-link">Log In</a>
+                <span class="auth-tab-active">Create Account</span>
+            </div>
+
+            <!-- Form Body -->
+            <form id="signupForm" onsubmit="handleSignupSubmit(event)">
+                <!-- Name: First Name & Last Name (Side by Side) -->
+                <div class="input-block">
+                    <label class="input-title">Name</label>
+                    <div class="name-fields-row">
+                        <div class="clean-field-box">
+                            <input type="text" id="firstName" placeholder="First Name" required>
+                        </div>
+                        <div class="clean-field-box">
+                            <input type="text" id="lastName" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHANGED: Mobile No / Email — was a single combined "userContact" field,
+                     now split into two tabs with Mobile No shown first -->
+                <div class="input-block">
+                    <label class="input-title">Mobile No / Email</label>
+
+                    <div class="contact-tabs-row">
+                        <button type="button" class="contact-tab-btn active" id="tabBtnMobile" onclick="switchAuthInput('mobile')">Mobile No</button>
+                        <button type="button" class="contact-tab-btn" id="tabBtnEmail" onclick="switchAuthInput('email')">Email</button>
+                    </div>
+
+                    <!-- Mobile Section (shown first) -->
+                    <div id="mobileInputBlock">
+                        <div class="clean-field-box">
+                            <!-- Country code trigger -->
+                            <div class="prefix-code" id="countryCodeTrigger" onclick="toggleCountryDropdown(event)" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+                                <span class="flag" id="selectedFlag">🇮🇳</span>
+                                <span class="code" id="selectedCode">+91</span>
+                                <span class="arrow">▾</span>
+                            </div>
+
+                            <!-- Holds the real dial code used on submit -->
+                            <input type="hidden" id="dialCode" value="+91">
+
+                            <input type="tel" id="userMobile" placeholder="Enter your mobile number" required pattern="[0-9]{6,14}">
+
+                            <!-- Country dropdown panel -->
+                            <div class="country-dropdown" id="countryDropdown">
+                                <div class="country-search-box">
+                                    <input type="text" id="countrySearchInput" placeholder="Search country or code" oninput="filterCountryList()" onclick="event.stopPropagation()">
+                                </div>
+                                <ul class="country-list" id="countryList" role="listbox"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Section (hidden until Email tab is picked) -->
+                    <div id="emailInputBlock" hidden>
+                        <div class="clean-field-box">
+                            <input type="email" id="userEmail" placeholder="Enter your email address">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password with View Toggle -->
+                <div class="input-block">
+                    <label class="input-title">Password</label>
+                    <div class="clean-field-box" id="pwdBox">
+                        <input type="password" id="userPassword" placeholder="Create a strong password" required minlength="6">
+                        <button type="button" class="eye-toggle-icon" onclick="togglePasswordView()" title="Show/Hide Password">
+                            <svg id="pwdEyeSvg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Proceed Button -->
+                <div class="btn-action-row">
+                    <button type="submit" class="btn-proceed-securely" id="btnProceed">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Bottom Footer Switch -->
+            <div class="auth-card-footer">
+                <p class="terms-text">Already have an account? <a href="login.html">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast" role="alert">
+        <span id="toastIcon">✨</span>
+        <span id="toastMsg">Notification message</span>
+    </div>
+
+    <!-- External Script -->
+    <script src="signup.js"></script>
+</body>
+</html>

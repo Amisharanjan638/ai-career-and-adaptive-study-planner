@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MargZen — AI Academic & Career Path Planner</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stream.css">
+</head>
+<body class="stream-page-body">
+
+    <!-- Ambient Glow Background -->
+    <div class="bg-fx">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- Navigation Header -->
+    <header class="stream-navbar">
+        <a href="stream.html" class="nav-brand">
+            <img src="logo.png" onerror="this.onerror=null; this.src='logo.jpg';" alt="MargZen Logo" class="nav-logo-img">
+            <span class="nav-brand-text">Marg<span>Zen</span></span>
+        </a>
+
+        <!-- 5-Step Progress Tracker in Navbar -->
+        <div class="steps-progress-bar">
+            <div class="step-nav-item active" id="stepPill1" onclick="goToStep(1)">
+                <span class="step-num">1</span>
+                <span class="step-label">Stream</span>
+            </div>
+            <div class="step-line" id="line1"></div>
+            <div class="step-nav-item" id="stepPill2" onclick="goToStep(2)">
+                <span class="step-num">2</span>
+                <span class="step-label">Degree</span>
+            </div>
+            <div class="step-line" id="line2"></div>
+            <div class="step-nav-item" id="stepPill3" onclick="goToStep(3)">
+                <span class="step-num">3</span>
+                <span class="step-label">Career</span>
+            </div>
+            <div class="step-line" id="line3"></div>
+            <div class="step-nav-item" id="stepPill4" onclick="goToStep(4)">
+                <span class="step-num">4</span>
+                <span class="step-label">Workplace</span>
+            </div>
+            <div class="step-line" id="line4"></div>
+            <div class="step-nav-item" id="stepPill5" onclick="goToStep(5)">
+                <span class="step-num">5</span>
+                <span class="step-label">Timeline</span>
+            </div>
+        </div>
+
+       
+    </header>
+
+    <!-- Main Container -->
+    <main class="stream-main-container">
+
+        <!-- ============================================================
+             STEP 01: CHOOSE A STREAM
+             ============================================================ -->
+        <section class="wizard-step-section active" id="wizardStep1">
+            <div class="step-badge-wrap">
+                <div class="step-badge">
+                    <span>STEP 01</span>
+                    <span class="badge-separator">—</span>
+                    <span>ACADEMIC PATH</span>
+                </div>
+            </div>
+
+            <h1 class="stream-heading">
+                Choose a <span class="highlight-stream">Stream</span>
+            </h1>
+
+            <p class="stream-subtext">
+                Select the academic stream that aligns with your foundational interests and subject focus.
+            </p>
+
+            <!-- 5 Academic Stream Cards -->
+            <div class="stream-cards-grid">
+                <!-- Card 1: PCM -->
+                <div class="stream-card pcm-card" onclick="selectStream('pcm', this)" tabindex="0">
+                    <div class="card-glow-bg"></div>
+                    <div class="card-select-badge">✓</div>
+                    
+                    <div class="stream-icon-wrap pcm-icon">
+                        <svg viewBox="0 0 100 100" class="stream-svg-icon" fill="none">
+                            <ellipse cx="50" cy="50" rx="36" ry="14" stroke="#38BDF8" stroke-width="2" transform="rotate(30 50 50)" stroke-opacity="0.85"/>
+                            <ellipse cx="50" cy="50" rx="36" ry="14" stroke="#38BDF8" stroke-width="2" transform="rotate(-30 50 50)" stroke-opacity="0.85"/>
+                            <ellipse cx="50" cy="50" rx="36" ry="14" stroke="#38BDF8" stroke-width="2" transform="rotate(90 50 50)" stroke-opacity="0.85"/>
+                            <circle cx="50" cy="50" r="7" fill="#38BDF8"/>
+                            <circle cx="20" cy="36" r="3.5" fill="#38BDF8"/>
+                            <circle cx="80" cy="64" r="3.5" fill="#38BDF8"/>
+                            <circle cx="50" cy="14" r="3.5" fill="#FBBF24"/>
+                            <text x="12" y="16" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#38BDF8" opacity="0.85">F=ma</text>
+                            <text x="66" y="88" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#38BDF8" opacity="0.85">E=mc²</text>
+                        </svg>
+                    </div>
+
+                    <h3 class="stream-title">PCM</h3>
+                    <span class="stream-tag pcm-tag">Engineering &amp; Tech</span>
+
+                    <div class="subject-pills-list">
+                        <div class="subject-pill">Physics</div>
+                        <div class="subject-pill">Chemistry</div>
+                        <div class="subject-pill">Mathematics</div>
+                    </div>
+                </div>
+
+                <!-- Card 2: PCB -->
+                <div class="stream-card pcb-card" onclick="selectStream('pcb', this)" tabindex="0">
+                    <div class="card-glow-bg"></div>
+                    <div class="card-select-badge">✓</div>
+
+                    <div class="stream-icon-wrap pcb-icon">
+                        <svg viewBox="0 0 100 100" class="stream-svg-icon" fill="none">
+                            <path d="M36 18 C46 28, 54 28, 64 18" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M36 32 C46 40, 54 40, 64 32" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M64 46 C54 54, 46 54, 36 46" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M64 60 C54 68, 46 68, 36 60" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M36 74 C46 82, 54 82, 64 74" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M36 15 Q34 45 64 50 Q34 55 36 85" stroke="#22C55E" stroke-width="2.5" stroke-dasharray="3 3"/>
+                            <path d="M64 15 Q66 45 36 50 Q66 55 64 85" stroke="#86EFAC" stroke-width="2.5" stroke-dasharray="3 3"/>
+                            <circle cx="36" cy="18" r="4" fill="#4ADE80"/>
+                            <circle cx="64" cy="18" r="4" fill="#86EFAC"/>
+                            <circle cx="36" cy="32" r="4" fill="#4ADE80"/>
+                            <circle cx="64" cy="32" r="4" fill="#86EFAC"/>
+                            <circle cx="64" cy="46" r="4" fill="#4ADE80"/>
+                            <circle cx="36" cy="46" r="4" fill="#86EFAC"/>
+                            <circle cx="64" cy="60" r="4" fill="#4ADE80"/>
+                            <circle cx="36" cy="60" r="4" fill="#86EFAC"/>
+                            <circle cx="36" cy="74" r="4" fill="#4ADE80"/>
+                            <circle cx="64" cy="74" r="4" fill="#86EFAC"/>
+                        </svg>
+                    </div>
+
+                    <h3 class="stream-title">PCB</h3>
+                    <span class="stream-tag pcb-tag">Medical &amp; Life Sciences</span>
+
+                    <div class="subject-pills-list">
+                        <div class="subject-pill">Physics</div>
+                        <div class="subject-pill">Chemistry</div>
+                        <div class="subject-pill">Biology</div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Commerce -->
+                <div class="stream-card commerce-card" onclick="selectStream('commerce', this)" tabindex="0">
+                    <div class="card-glow-bg"></div>
+                    <div class="card-select-badge">✓</div>
+
+                    <div class="stream-icon-wrap commerce-icon">
+                        <svg viewBox="0 0 100 100" class="stream-svg-icon" fill="none">
+                            <line x1="22" y1="78" x2="78" y2="78" stroke="#475569" stroke-width="2"/>
+                            <line x1="22" y1="30" x2="22" y2="78" stroke="#475569" stroke-width="2"/>
+                            <rect x="28" y="58" width="10" height="20" rx="2" fill="#EAB308" fill-opacity="0.9"/>
+                            <rect x="44" y="44" width="10" height="34" rx="2" fill="#FACC15" fill-opacity="0.95"/>
+                            <rect x="60" y="32" width="10" height="46" rx="2" fill="#FDE047"/>
+                            <path d="M26 62 L42 46 L58 36 L74 24" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="74" cy="24" r="3" fill="#FBBF24"/>
+                            <text x="70" y="16" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#FACC15">₹↑</text>
+                        </svg>
+                    </div>
+
+                    <h3 class="stream-title">Commerce</h3>
+                    <span class="stream-tag commerce-tag">Finance &amp; Management</span>
+
+                    <div class="subject-pills-list">
+                        <div class="subject-pill">Accountancy</div>
+                        <div class="subject-pill">Economics</div>
+                        <div class="subject-pill">Business Studies</div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Arts -->
+                <div class="stream-card arts-card" onclick="selectStream('arts', this)" tabindex="0">
+                    <div class="card-glow-bg"></div>
+                    <div class="card-select-badge">✓</div>
+
+                    <div class="stream-icon-wrap arts-icon">
+                        <svg viewBox="0 0 100 100" class="stream-svg-icon" fill="none">
+                            <path d="M50 20 C68 20, 82 32, 80 50 C78 64, 66 76, 50 78 C36 80, 20 68, 20 50 C20 34, 34 20, 50 20 Z" fill="#334155" stroke="#C084FC" stroke-width="2"/>
+                            <ellipse cx="64" cy="62" rx="5" ry="6" fill="#1E293B"/>
+                            <circle cx="36" cy="34" r="4.5" fill="#EF4444"/>
+                            <circle cx="50" cy="30" r="4.5" fill="#F59E0B"/>
+                            <circle cx="64" cy="36" r="4.5" fill="#10B981"/>
+                            <circle cx="68" cy="50" r="4.5" fill="#3B82F6"/>
+                            <circle cx="34" cy="48" r="4.5" fill="#EC4899"/>
+                            <line x1="78" y1="22" x2="62" y2="44" stroke="#E2E8F0" stroke-width="3" stroke-linecap="round"/>
+                            <polygon points="62,44 65,49 58,52" fill="#F43F5E"/>
+                        </svg>
+                    </div>
+
+                    <h3 class="stream-title">Arts</h3>
+                    <span class="stream-tag arts-tag">Humanities &amp; Social Sciences</span>
+
+                    <div class="subject-pills-list">
+                        <div class="subject-pill">History</div>
+                        <div class="subject-pill">Political Science</div>
+                        <div class="subject-pill">Literature</div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Honours -->
+                <div class="stream-card honours-card" onclick="selectStream('honours', this)" tabindex="0">
+                    <div class="card-glow-bg"></div>
+                    <div class="card-select-badge">✓</div>
+
+                    <div class="stream-icon-wrap honours-icon">
+                        <svg viewBox="0 0 100 100" class="stream-svg-icon" fill="none">
+                            <polygon points="50,26 84,40 50,54 16,40" fill="#E879F9" stroke="#F472B6" stroke-width="1.5"/>
+                            <path d="M28 46 L28 60 Q50 72 72 60 L72 46 Q50 58 28 46 Z" fill="#A21CAF" stroke="#F472B6" stroke-width="1.5"/>
+                            <path d="M50 40 Q76 46 80 62" stroke="#FBBF24" stroke-width="2.2" fill="none"/>
+                            <polygon points="50,68 52,74 58,74 53,78 55,84 50,80 45,84 47,78 42,74 48,74" fill="#FBBF24"/>
+                        </svg>
+                    </div>
+
+                    <h3 class="stream-title">Honours</h3>
+                    <span class="stream-tag honours-tag">Advanced Specialisation</span>
+
+                    <div class="subject-pills-list">
+                        <div class="subject-pill">Core Subject</div>
+                        <div class="subject-pill">Electives</div>
+                        <div class="subject-pill">Research Methods</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Button Step 1 -->
+            <div class="stream-action-bar">
+                <button id="btnContinueStream" class="btn-continue-stream" onclick="proceedToStep2()" disabled>
+                    <span>Continue to Degree Selection</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             STEP 02: CHOOSE DEGREE (Expanded for all PCM branches & all streams)
+             ============================================================ -->
+        <section class="wizard-step-section" id="wizardStep2">
+            <div class="step-badge-wrap">
+                <div class="step-badge degree-badge">
+                    <span>STEP 02</span>
+                    <span class="badge-separator">—</span>
+                    <span>DEGREE &amp; HIGHER EDUCATION</span>
+                </div>
+            </div>
+
+            <div class="breadcrumb-trail">
+                <span class="trail-item" onclick="goToStep(1)">Stream: <strong id="trailStreamName">PCM</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-current">Select Target Degree</span>
+            </div>
+
+            <h1 class="stream-heading">
+                Choose a <span class="highlight-stream">Degree</span>
+            </h1>
+
+            <p class="stream-subtext" id="degreeSubtitle">
+                Select your engineering discipline or degree program to specialize your preparation.
+            </p>
+
+            <!-- Dynamic Degrees Grid Container -->
+            <div class="degrees-cards-grid" id="degreesGrid">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div class="wizard-nav-actions">
+                <button class="btn-secondary-back" onclick="goToStep(1)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Change Stream</span>
+                </button>
+                <button id="btnContinueDegree" class="btn-continue-stream" onclick="proceedToStep3()" disabled>
+                    <span>Continue to Career Path</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             STEP 03: CHOOSE CAREER
+             ============================================================ -->
+        <section class="wizard-step-section" id="wizardStep3">
+            <div class="step-badge-wrap">
+                <div class="step-badge career-badge">
+                    <span>STEP 03</span>
+                    <span class="badge-separator">—</span>
+                    <span>CAREER DESTINATION</span>
+                </div>
+            </div>
+
+            <div class="breadcrumb-trail">
+                <span class="trail-item" onclick="goToStep(1)">Stream: <strong id="trailStreamName2">PCM</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-item" onclick="goToStep(2)">Degree: <strong id="trailDegreeName">CSE</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-current">Select Target Career</span>
+            </div>
+
+            <h1 class="stream-heading">
+                Choose your <span class="highlight-stream">Career</span>
+            </h1>
+
+            <p class="stream-subtext" id="careerSubtitle">
+                Select your target professional role. AI will tailor roadmaps and daily evaluations specifically for it.
+            </p>
+
+            <!-- Dynamic Careers Grid Container -->
+            <div class="careers-cards-grid" id="careersGrid">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div class="wizard-nav-actions">
+                <button class="btn-secondary-back" onclick="goToStep(2)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Change Degree</span>
+                </button>
+                <button id="btnContinueCareer" class="btn-continue-stream" onclick="proceedToStep4()" disabled>
+                    <span>Continue to Workplace Type</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             STEP 04: CHOOSE COMPANY / WORKPLACE TYPE
+             ============================================================ -->
+        <section class="wizard-step-section" id="wizardStep4">
+            <div class="step-badge-wrap">
+                <div class="step-badge workplace-badge">
+                    <span>STEP 04</span>
+                    <span class="badge-separator">—</span>
+                    <span>TARGET WORKPLACE &amp; INDUSTRY</span>
+                </div>
+            </div>
+
+            <div class="breadcrumb-trail">
+                <span class="trail-item" onclick="goToStep(1)">Stream: <strong id="trailStreamName3">PCM</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-item" onclick="goToStep(2)">Degree: <strong id="trailDegreeName2">CSE</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-item" onclick="goToStep(3)">Career: <strong id="trailCareerName">Software Engineer</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-current">Select Target Workplace</span>
+            </div>
+
+            <h1 class="stream-heading">
+                Choose Workplace <span class="highlight-stream">Type</span>
+            </h1>
+
+            <p class="stream-subtext" id="workplaceSubtitle">
+                Select your preferred company environment (Startup, Product MNC, FinTech, PSU, Research Lab, etc.).
+            </p>
+
+            <!-- Dynamic Workplace Cards Grid -->
+            <div class="workplaces-cards-grid" id="workplacesGrid">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div class="wizard-nav-actions">
+                <button class="btn-secondary-back" onclick="goToStep(3)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Change Career</span>
+                </button>
+                <button id="btnContinueWorkplace" class="btn-continue-stream" onclick="proceedToStep5()" disabled>
+                    <span>Continue to Daily Commitment</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             STEP 05: TIME & PREPARATION DEADLINE
+             ============================================================ -->
+        <section class="wizard-step-section" id="wizardStep5">
+            <div class="step-badge-wrap">
+                <div class="step-badge deadline-badge">
+                    <span>STEP 05</span>
+                    <span class="badge-separator">—</span>
+                    <span>STUDY TIME &amp; TARGET DEADLINE</span>
+                </div>
+            </div>
+
+            <div class="breadcrumb-trail">
+                <span class="trail-item" onclick="goToStep(1)">Stream: <strong id="trailStreamName4">PCM</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-item" onclick="goToStep(2)">Degree: <strong id="trailDegreeName3">CSE</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-item" onclick="goToStep(3)">Career: <strong id="trailCareerName2">Developer</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-item" onclick="goToStep(4)">Workplace: <strong id="trailWorkplaceName">Product MNC</strong></span>
+                <span class="trail-arrow">→</span>
+                <span class="trail-current">Daily Hours &amp; Deadline</span>
+            </div>
+
+            <h1 class="stream-heading">
+                Set Study Time &amp; <span class="highlight-stream">Deadline</span>
+            </h1>
+
+            <p class="stream-subtext">
+                How much time can you dedicate daily, and how many months do you want to achieve your goal in?
+            </p>
+
+            <!-- Time & Deadline Form Card -->
+            <div class="timeline-config-card">
+
+                <!-- 1. Daily Study Hours -->
+                <div class="config-input-group">
+                    <div class="config-header-row">
+                        <div class="config-icon">⏱️</div>
+                        <div>
+                            <h3 class="config-title">Daily Study Commitment</h3>
+                            <p class="config-desc">Type your own hours, or pick a preset from the dropdown</p>
+                        </div>
+                    </div>
+
+                    <div class="combo-input-box">
+                        <label class="field-sublabel">Hours / Day</label>
+                        <div class="combo-field" id="dailyHoursCombo">
+                            <input type="number" id="dailyHoursInput" class="combo-input"
+                                   value="2" min="0.5" max="16" step="0.5"
+                                   oninput="handleDailyHoursInput(this.value)"
+                                   onfocus="toggleComboDropdown('dailyHoursDropdown', true)">
+                            <span class="combo-suffix">Hrs/Day</span>
+                            <button type="button" class="combo-toggle-btn" onclick="toggleComboDropdown('dailyHoursDropdown')" aria-label="Show hour presets">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div class="combo-dropdown-list" id="dailyHoursDropdown">
+                                <div class="combo-option" onclick="selectComboOption('dailyHoursInput','dailyHoursDropdown',1)">1 Hour / Day (Casual Practice)</div>
+                                <div class="combo-option" onclick="selectComboOption('dailyHoursInput','dailyHoursDropdown',2)">2 Hours / Day (Consistent Rhythm)</div>
+                                <div class="combo-option" onclick="selectComboOption('dailyHoursInput','dailyHoursDropdown',3)">3 Hours / Day (Focused Preparation)</div>
+                                <div class="combo-option" onclick="selectComboOption('dailyHoursInput','dailyHoursDropdown',4)">4 Hours / Day (Dedicated Mastery)</div>
+                                <div class="combo-option" onclick="selectComboOption('dailyHoursInput','dailyHoursDropdown',6)">6 Hours / Day (Intensive Preparation)</div>
+                                <div class="combo-option" onclick="selectComboOption('dailyHoursInput','dailyHoursDropdown',8)">8+ Hours / Day (Full-Time Immersion)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Preparation Target Deadline / Duration -->
+                <div class="config-input-group">
+                    <div class="config-header-row">
+                        <div class="config-icon">📅</div>
+                        <div>
+                            <h3 class="config-title">Target Goal Deadline</h3>
+                            <p class="config-desc">Type your own duration, or pick a preset from the dropdown</p>
+                        </div>
+                    </div>
+
+                    <div class="combo-input-box">
+                        <label class="field-sublabel">Months</label>
+                        <div class="combo-field" id="deadlineMonthsCombo">
+                            <input type="number" id="deadlineMonthsInput" class="combo-input"
+                                   value="3" min="1" max="36" step="1"
+                                   oninput="handleMonthsInput(this.value)"
+                                   onfocus="toggleComboDropdown('deadlineMonthsDropdown', true)">
+                            <span class="combo-suffix">Months</span>
+                            <button type="button" class="combo-toggle-btn" onclick="toggleComboDropdown('deadlineMonthsDropdown')" aria-label="Show duration presets">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div class="combo-dropdown-list" id="deadlineMonthsDropdown">
+                                <div class="combo-option" onclick="selectComboOption('deadlineMonthsInput','deadlineMonthsDropdown',1)">1 Month (Sprint Revision)</div>
+                                <div class="combo-option" onclick="selectComboOption('deadlineMonthsInput','deadlineMonthsDropdown',2)">2 Months (Fast-Track Prep)</div>
+                                <div class="combo-option" onclick="selectComboOption('deadlineMonthsInput','deadlineMonthsDropdown',3)">3 Months (Quarterly Target)</div>
+                                <div class="combo-option" onclick="selectComboOption('deadlineMonthsInput','deadlineMonthsDropdown',4)">4 Months (Comprehensive Prep)</div>
+                                <div class="combo-option" onclick="selectComboOption('deadlineMonthsInput','deadlineMonthsDropdown',6)">6 Months (Deep Conceptual Mastery)</div>
+                                <div class="combo-option" onclick="selectComboOption('deadlineMonthsInput','deadlineMonthsDropdown',9)">9 Months (Extensive Foundation)</div>
+                                <div class="combo-option" onclick="selectComboOption('deadlineMonthsInput','deadlineMonthsDropdown',12)">12 Months (Full Academic Year)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Calculated Study Summary Pill -->
+                <div class="study-calculation-banner" id="studyCalcBanner">
+                    <div class="calc-icon">⚡</div>
+                    <div class="calc-details">
+                        <h4 id="calcSummaryTitle">Total Target: ~180 Study Hours</h4>
+                        <p id="calcSummaryDesc">Calculated at 2.0 hrs/day for 3 months (~90 study days). AI daily targets &amp; quizzes will adapt dynamically to this pace.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div class="wizard-nav-actions">
+                <button class="btn-secondary-back" onclick="goToStep(4)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Change Workplace</span>
+                </button>
+                <button id="btnGenerateRoadmap" class="btn-generate-roadmap" onclick="finalizeRoadmap()">
+                    <span>Generate AI Adaptive Roadmap &amp; Daily Targets 🚀</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="stream.js"></script>
+</body>
+</html>

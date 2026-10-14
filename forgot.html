@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forgot Password — MargZen</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="auth-page-body">
+
+    <div class="auth-wrapper">
+
+        <div class="clean-auth-card">
+
+           <!-- <a href="login.html" class="back-home-link">← Back to Login</a> -->
+
+            <!-- Card Top: Brand Logo -->
+            <div class="auth-card-top">
+                <div class="auth-card-brand">
+                    <img src="logo.jpg" onerror="this.onerror=null; this.style.display='none';" alt="MargZen Logo" class="auth-card-logo">
+                    <span class="auth-card-brandname">Marg<span>Zen</span></span>
+                </div>
+            </div>
+
+            <!-- Main Heading -->
+            <div class="auth-card-heading-wrap">
+                <h2 class="auth-main-headline">Forgot Password?</h2>
+            </div>
+           <!-- <p class="auth-subtext">Enter your registered mobile number and we'll send you a one-time code to reset your password.</p> -->
+
+            <!-- Form Body -->
+            <form id="forgotPasswordForm" novalidate>
+
+                <div class="input-block">
+                    <label class="input-title">Mobile Number</label>
+
+                    <div class="clean-field-box" id="mobileFieldBox">
+                        <!-- Country code trigger -->
+                        <div class="prefix-code" id="countryCodeTrigger" onclick="toggleCountryDropdown(event)"
+                             tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="flag" id="selectedFlag">🇮🇳</span>
+                            <span class="code" id="selectedCode">+91</span>
+                            <span class="arrow" id="countryArrow">▾</span>
+                        </div>
+
+                        <!-- Hidden field to store dial code -->
+                        <input type="hidden" id="dialCode" value="+91">
+
+                        <input type="tel" id="userMobile" placeholder="Enter your 10-digit mobile number"
+                               inputmode="numeric" maxlength="10" oninput="handleMobileInput()">
+
+                        <!-- Country dropdown panel -->
+                        <div class="country-dropdown" id="countryDropdown">
+                            <div class="country-search-box">
+                                <input type="text" id="countrySearchInput" placeholder="Search country or code"
+                                       oninput="filterCountryList()" onclick="event.stopPropagation()">
+                            </div>
+                            <ul class="country-list" id="countryList" role="listbox">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="field-error" id="mobileError">Invalid phone number</span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-proceed-securely" id="btnSendOtp">
+                    <span>Send OTP</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast" role="alert">
+        <span id="toastIcon">✨</span>
+        <span id="toastMsg">Notification message</span>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="auth.js"></script>
+    <script src="forgot.js"></script>
+
+</body>
+
+</html>

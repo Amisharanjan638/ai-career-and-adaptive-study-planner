@@ -1,0 +1,233 @@
+/* ============================================================
+   MARGZEN - EDITORIAL WHITE ABOUT US STYLES
+   Clean, formal, highly-readable layout matching reference design
+   ============================================================ */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white-bg:        #FFFFFF;
+    --text-primary:    #111827;
+    --text-secondary:  #374151;
+    --text-muted:      #6B7280;
+    --accent-blue:     #0091FF;
+    --accent-sky:      #E0F2FE;
+    --border-light:    #E5E7EB;
+    --font-main:       'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body.clean-white-body {
+    background-color: var(--white-bg);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   1. CLEAN WHITE HEADER (LEFT ONLY: LOGO + MARGZEN)
+   ============================================================ */
+.clean-white-header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid var(--border-light);
+    padding: 16px 0;
+}
+
+.header-container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.brand-logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-title-text {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.brand-title-text span {
+    color: var(--accent-blue);
+}
+
+/* Top Accent Bar (Sky tint matching reference design) */
+.top-accent-bar {
+    height: 36px;
+    background: linear-gradient(180deg, #E0F2FE 0%, #F0F9FF 100%);
+    border-bottom: 1px solid #BAE6FD;
+}
+
+/* ============================================================
+   2. MAIN EDITORIAL CONTENT
+   ============================================================ */
+.editorial-container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 44px 28px 70px;
+}
+
+/* Main Heading */
+.editorial-main-heading {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+}
+
+/* Section & Subheadings */
+.editorial-section {
+    margin-bottom: 32px;
+}
+
+.editorial-subheading {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 28px 0 14px;
+    letter-spacing: -0.01em;
+}
+
+/* Paragraphs */
+.editorial-paragraph {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.editorial-paragraph strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.editorial-paragraph em {
+    color: var(--text-primary);
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* Ordered / Bullet List in Editorial Style */
+.editorial-list {
+    margin: 16px 0 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editorial-list li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.editorial-list li strong {
+    color: var(--text-primary);
+}
+
+/* ============================================================
+   3. CLEAN WHITE FOOTER
+   ============================================================ */
+.clean-white-footer {
+    background-color: #FAFAFA;
+    border-top: 1px solid var(--border-light);
+    padding: 44px 0 24px;
+    margin-top: 40px;
+}
+
+.footer-content-wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 28px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left-brand .footer-brand-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.footer-left-brand .footer-brand-title span {
+    color: var(--accent-blue);
+}
+
+.footer-brand-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.footer-nav-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.footer-nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.15s ease;
+}
+
+.footer-nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+.footer-copyright-row {
+    max-width: 1060px;
+    margin: 20px auto 0;
+    padding: 0 28px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .editorial-container {
+        padding: 30px 20px 50px;
+    }
+    .editorial-main-heading {
+        font-size: 25px;
+    }
+    .editorial-subheading {
+        font-size: 18px;
+    }
+    .footer-content-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-nav-links {
+        gap: 16px;
+    }
+}

@@ -1,0 +1,301 @@
+/* ============================================================
+   1. RESET & THEME VARIABLES (Light Theme)
+   ============================================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue:          #0091FF;
+    --blue-dim:      #007CE0;
+    --blue-glow:     rgba(0, 145, 255, 0.18);
+    --blue-subtle:   rgba(0, 145, 255, 0.06);
+    --teal:          #00A389;
+
+    --bg-body:       #FFFFFF;
+    --bg-nav:        rgba(255, 255, 255, 0.9);
+    --bg-card:       #F7F9FC;
+    --bg-card-hover: #EFF4FB;
+
+    --border:        #E4E9F2;
+    --border-hover:  rgba(0, 145, 255, 0.35);
+
+    --text-dark:     #0F172A;
+    --text-body:     #475569;
+    --text-muted:    #94A3B8;
+
+    --font-heading:  'Playfair Display', Georgia, serif;
+    --font-sans:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================================================
+   2. NAVBAR
+   ============================================================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 16px 48px;
+    background: var(--bg-nav);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 0.3px;
+}
+
+.logo-text span {
+    color: var(--blue);
+}
+
+/* ============================================================
+   3. PAGE INTRO
+   ============================================================ */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.page-intro {
+    text-align: center;
+    padding: 64px 0 24px;
+}
+
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 18px;
+    background: var(--blue-subtle);
+    border: 1px solid rgba(0, 145, 255, 0.2);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 18px;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.page-subtext {
+    font-size: 15px;
+    color: var(--text-body);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   4. CONTACT CARDS
+   ============================================================ */
+.contact-section {
+    padding: 32px 0 80px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 40px 28px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.contact-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 145, 255, 0.1);
+}
+
+.contact-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.phone-icon {
+    background: rgba(0, 145, 255, 0.1);
+    color: var(--blue);
+}
+
+.mail-icon {
+    background: rgba(0, 163, 137, 0.1);
+    color: var(--teal);
+}
+
+.contact-label {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.contact-value {
+    font-size: 15px;
+    color: var(--text-body);
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.contact-action {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.2px;
+}
+
+/* ============================================================
+   5. FOOTER
+   ============================================================ */
+.footer {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: 48px 48px 24px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer-brand {
+    max-width: 400px;
+}
+
+.footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+}
+
+.footer-logo-text {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.footer-logo-text span {
+    color: var(--blue);
+}
+
+.footer-brand p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.footer-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.footer-nav-links a {
+    color: var(--text-body);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.footer-nav-links a:hover {
+    color: var(--blue);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   6. RESPONSIVENESS
+   ============================================================ */
+@media (max-width: 768px) {
+    .navbar { padding: 14px 20px; }
+    .nav-logo img { height: 42px; }
+    .logo-text { font-size: 20px; }
+    .page-title { font-size: 30px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-nav-links {
+        justify-content: center;
+    }
+}

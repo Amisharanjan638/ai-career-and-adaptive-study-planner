@@ -1,0 +1,219 @@
+/* ============================================================
+   1. RESET & THEME VARIABLES (Light Theme)
+   ============================================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue:          #0091FF;
+    --blue-subtle:   rgba(0, 145, 255, 0.06);
+
+    --bg-body:       #FFFFFF;
+    --bg-nav:        rgba(255, 255, 255, 0.9);
+    --bg-footer:     #F7F9FC;
+
+    --border:        #E4E9F2;
+
+    --text-dark:     #0F172A;
+    --text-body:     #475569;
+    --text-muted:    #94A3B8;
+
+    --font-heading:  'Playfair Display', Georgia, serif;
+    --font-sans:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================================================
+   2. NAVBAR
+   ============================================================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 16px 48px;
+    background: var(--bg-nav);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 0.3px;
+}
+
+.logo-text span {
+    color: var(--blue);
+}
+
+/* ============================================================
+   3. PAGE INTRO
+   ============================================================ */
+main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.page-intro {
+    text-align: center;
+    padding: 56px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+}
+
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 18px;
+    background: var(--blue-subtle);
+    border: 1px solid rgba(0, 145, 255, 0.2);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 18px;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.page-subtext {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   4. TERMS CONTENT
+   ============================================================ */
+.terms-section {
+    padding-bottom: 72px;
+}
+
+.terms-block {
+    margin-bottom: 36px;
+}
+
+.terms-heading {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.terms-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.terms-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 14.5px;
+    color: var(--text-body);
+    line-height: 1.65;
+}
+
+.terms-list li::before {
+    content: '•';
+    position: absolute;
+    left: 2px;
+    color: var(--blue);
+    font-size: 16px;
+}
+
+.inline-link {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.inline-link:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   5. SIMPLE FOOTER
+   ============================================================ */
+.footer {
+    background: var(--bg-footer);
+    border-top: 1px solid var(--border);
+    padding: 32px 24px 20px;
+    text-align: center;
+}
+
+.footer-nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.footer-nav-links a {
+    color: var(--text-body);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav-links a:hover {
+    color: var(--blue);
+}
+
+.footer-bottom {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   6. RESPONSIVENESS
+   ============================================================ */
+@media (max-width: 768px) {
+    .navbar { padding: 14px 20px; }
+    .nav-logo img { height: 42px; }
+    .logo-text { font-size: 20px; }
+    .page-title { font-size: 28px; }
+    .footer-nav-links { gap: 20px; }
+}
